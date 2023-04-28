@@ -1,0 +1,733 @@
+//& ---------------------- COLORS & DESIGN --------------------------- ~\\
+//Secondary Palette
+$primary-100: #2563eb;
+$primary-200: #598EF3;
+$primary-300: #D3E6FE;
+$accent-100: #d946ef;
+$accent-200: #fae8ff;
+$text-100: #cbd5e1;
+$text-200: #94a3b8;
+$bg-100: #1e293b;
+$bg-200: #334155;
+$bg-300: #475569;
+
+//MAIN PALETTE
+$blue : #3C415C;
+$darkblue: #23243C;
+$purple : #3F3351;
+$silver : #A79D98;
+$white : #F5EEEA;
+$black: #292727;
+$whiteLogo: #D8CBC4;
+$goldLogo: #B48F57;
+$whiteBlue : #D3D5FD;
+
+.whiteLogo {
+    color: $whiteLogo;
+}
+
+.white {
+    color: $white;
+}
+
+hr {
+    background: url(../Ressources/Images/separationDeco.svg) center center / contain no-repeat;
+    background-color: $black;
+    height: 15px;
+    border: none;
+}
+
+.svgShadow {
+    filter: drop-shadow(0px 1px 2px $whiteBlue);
+}
+
+//* --------------------- RESET --------------------------- ~\\
+
+* {
+    margin: 0 auto;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.max-row {
+    max-width: 1900px;
+    width: 100%;
+}
+
+li {
+    list-style-type: none;
+}
+
+a {
+    text-decoration: none;
+}
+
+//~ -------------------- TEXT ----------------------------- ~\\
+
+.fleur {
+    font-family: 'FleurDeLeah';
+}
+
+.lotr {
+    font-family: 'UncialAntiqua';
+}
+
+.yaldevi {
+    font-family: 'Yaldevi';
+}
+
+.textShadow {
+    text-shadow: 0px 4px 4px #000000;
+}
+
+.whiteTextShadow {
+    text-shadow: 0px 4px 10px #B4A5A5;
+}
+
+.blur {
+    color: transparent;
+    text-shadow: 0 0 2px $whiteLogo;
+}
+
+.insetShadow {
+    text-shadow:
+        -1px -1px 1px #111,
+        2px 2px 1px #363636;
+}
+
+.fancyShadow {
+    text-shadow: -15px 5px 20px #ced0d3;
+}
+
+//& ---------------------- HEADER --------------------------- ~\\
+
+header {
+    background-color: $black;
+    height: 100px;
+    // position: sticky;
+    // top: 0;
+    display: grid;
+    z-index: 1;
+
+    .nav-mobile {
+        display: none;
+    }
+
+    #logoHeader {
+        margin: 10px 65px;
+        height: 80px;
+        background-color: transparent;
+        grid-column: -3;
+    }
+
+    .separationDot {
+        display: block;
+        font-size: 35px;
+        padding-top: 2rem;
+    }
+
+    .nav {
+        ul {
+            li {
+                float: right;
+                position: relative;
+
+                a {
+                    display: block;
+                    height: 100px;
+                    line-height: 3rem;
+                    font-size: 3rem;
+                    padding: 30px 30px;
+                    transition: all .5s ease;
+                }
+
+                a:hover {
+                    text-decoration: underline;
+                    text-shadow: 0px 4px 10px #B4A5A5;
+                }
+            }
+        }
+    }
+
+    #language-switcher{
+        position: absolute;
+        top: 2.5rem;
+        right: 2rem;
+
+        background-color: transparent;
+        border: 0;
+        cursor: pointer;
+    }
+}
+
+//* --------------------- MAIN --------------------------- ~\\
+
+#introduction {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    position: relative;
+    padding: 250px 0;
+    background: url(../Ressources/Images/mainMoonPhase.svg) center center / 1200px no-repeat;
+    background-color: $blue;
+
+    article {
+        text-align: center;
+        letter-spacing: 0.1em;
+        margin-bottom: 15px;
+
+        h1 {
+            font-size: 7rem;
+        }
+
+        h2 {
+            font-size: 3rem;
+            letter-spacing: 0.15em;
+        }
+
+        //! -------- GLOW BTN --------- ~\\
+
+        .button {
+            cursor: pointer;
+            font-family: inherit;
+            font-size: 2rem;
+            background-color: transparent;
+            color: $white;
+            text-shadow: 0px 4px 6px #B4A5A5;
+            border: 1px solid #434c8150;
+            border-radius: 1.25rem;
+            padding: 15px 15px;
+            margin-top: 15px;
+        }
+
+        .glow-effect {
+            --glow-line-color: #fff;
+            --glow-line-thickness: 2px;
+            --glow-blur-color: #fff;
+            --glow-blur-thickness: 10px;
+            --glow-line-length: 25px;
+            --animation-length: 1200ms;
+            //Ne pas changer, utiliser pour calc
+            --container-offset: 100px;
+            position: relative;
+        }
+
+        .glow-container {
+            pointer-events: none;
+            position: absolute;
+            inset: calc(var(--container-offset) / -2);
+            width: calc(100% + var(--container-offset));
+            height: calc(100% + var(--container-offset));
+            opacity: 0;
+            // outline: 3px solid blue;
+        }
+
+        .glow-blur,
+        .glow-line {
+            width: calc(100% - var(--container-offset));
+            height: calc(100% - var(--container-offset));
+            x: calc(var(--container-offset) / 2);
+            y: calc(var(--container-offset) / 2);
+            rx: 1.25rem;
+            fill: transparent;
+            stroke: black;
+            stroke-width: 5px;
+            stroke-dasharray: var(--glow-line-length) calc(50px - var(--glow-line-length));
+        }
+
+        .glow-line {
+            stroke: var(--glow-line-color);
+            stroke-width: var(--glow-line-thickness);
+        }
+
+        .glow-blur {
+            filter: blur(var(--glow-blur-thickness));
+            stroke: var(--glow-blur-color);
+            stroke-width: var(--glow-blur-thickness);
+        }
+
+        .glow-effect:is(:hover, :focus) .glow-container {
+            animation: glow-visibility ease-in-out var(--animation-length);
+        }
+    }
+
+    // ------------------ GLOW ANIMATIONS ------------------------------
+
+    .glow-effect:is(:hover, :focus) :is(.glow-line, .glow-blur) {
+        // ANIMATION SPEED
+        stroke-dashoffset: -80px;
+        transition: stroke-dashoffset var(--animation-length) ease-in;
+    }
+
+    @keyframes glow-visibility {
+
+        0%,
+        100% {
+            opacity: 0
+        }
+
+        25%,
+        75% {
+            opacity: 1
+        }
+    }
+
+    // ----------------------- DECORA -------------------------
+
+    #quotes {
+        text-align: center;
+        position: absolute;
+        bottom: 5%;
+        left: 10%;
+        width: 80%;
+        font-size: 1.5rem;
+
+        #MoonVines {
+            height: 8rem;
+            position: absolute;
+            bottom: 0;
+            left: -10%;
+        }
+    }
+
+}
+
+//~ -------------------- ABOUT ME ----------------------------- ~\\
+
+#aboutMe {
+    padding: 200px 0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    text-align: center;
+    background: url(../Ressources/Images/crystalsMoon.svg) bottom right / 150px no-repeat;
+    background-color: $purple;
+    color: $whiteLogo;
+    text-shadow:
+        -1px -1px 1px #111,
+        2px 2px 1px #363636;
+
+    #contenairPresentation {
+        width: 500px;
+        padding: 15px 50px;
+
+        .bio-length-control {
+            position: relative;
+            width: 300px;
+            margin: 1rem auto 2rem;
+        }
+
+        .bio-fieldset {
+            border: 0;
+        }
+
+        .bio-legend {
+            font-family: 'Yaldevi';
+            font-variant: small-caps;
+            text-transform: lowercase;
+            letter-spacing: .2rem;
+            margin: 0;
+            padding-bottom: 15px;
+            pointer-events: none;
+            text-align: left;
+        }
+
+        .bio-label-text {
+            display: none;
+            font-size: .600rem;
+            font-family: 'Yaldevi';
+            font-variant: small-caps;
+            text-transform: lowercase;
+            letter-spacing: .1rem;
+            margin: 0;
+            pointer-events: none;
+        }
+
+        .bio-option:first-of-type .bio-label-text {
+            display: block;
+            text-align: left;
+            font-weight: 900;
+        }
+
+        .bio-option:last-of-type .bio-label-text {
+            display: block;
+            text-align: right;
+            font-weight: 900;
+        }
+
+        .bio-length-options {
+            display: grid;
+            gap: 1.5rem;
+            grid-template-columns: repeat(4, 1fr);
+        }
+
+
+        .bio-input {
+            cursor: pointer;
+        }
+
+        .bio {
+            height: 150px;
+            border-right: 2px;
+            font-size: .9rem;
+            font-family: 'Yaldevi';
+            font-variant: small-caps;
+            text-transform: uppercase;
+            letter-spacing: .1rem;
+        }
+
+
+        input[type="radio"] {
+            appearance: none;
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            border: 1px solid $black;
+            border-radius: 50%;
+            outline: none;
+            width: 20px;
+            height: 20px;
+            transition: all 0.2s ease-in-out;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+        }
+
+        input[type="radio"]:checked {
+            background-color: $black;
+            border: none;
+        }
+
+        #moonDeco {
+            position: relative;
+            left: -12rem;
+        }
+    }
+
+    .containerPortrait {
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+        height: 450px;
+        width: 100%;
+        background-color: $whiteLogo;
+        border-radius: 75%;
+    }
+
+    .containerSocials {
+        width: 350px;
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+
+//& ---------------------- SKILLS --------------------------- ~\\
+
+#skills {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    text-align: center;
+    min-height: 900px;
+    padding: 15px;
+    background: url(../Ressources/Icons/reachforthemoon.svg) bottom left / 10% no-repeat;
+    background-color: $blue;
+
+    #skillsRecap,
+    #dreamcatcher,
+    #toolsRecap {
+        font-size: 1.5em;
+        font-weight: bold;
+        max-height: 250px;
+    }
+
+    #skillsRecap,
+    #toolsRecap {
+        box-shadow: rgba(55, 48, 70, 0.2) 0px 60px 40px -7px;
+    }
+
+    #skillsRecap {
+        font-variant: small-caps;
+        text-transform: lowercase;
+        letter-spacing: .3rem;
+        font-size: 2rem;
+        text-align: left;
+
+        .skills-fieldset {
+            border: 0;
+        }
+
+        .skills-legend {
+            pointer-events: none;
+        }
+
+        .skill-input {
+            cursor: pointer;
+        }
+
+        input[type="radio"] {
+            appearance: none;
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            border: 1px solid $whiteBlue;
+            border-radius: 50%;
+            outline: none;
+            width: 20px;
+            height: 20px;
+            transition: all 0.2s ease-in-out;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+        }
+
+        input[type="radio"]:checked {
+            background-color: $whiteLogo;
+            border: none;
+        }
+    }
+
+    #dreamcatcher {
+        height: 200px;
+        width: 200px;
+        background: url(../Ressources/Images/dreamcatcher.svg) bottom left / 150px no-repeat;
+    }
+
+    #toolsRecap {
+        display: flex;
+        flex-direction: column;
+
+        h2 {
+            padding-bottom: 1.5rem;
+        }
+    }
+
+    #skillsdetails {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        flex-wrap: wrap;
+        padding: 0 2rem;
+        max-width: 1200px;
+
+        #softSkillsBio {
+            font-size: 1.3rem;
+        }
+
+        div {
+            padding-bottom: 3rem;
+        }
+
+        .skillsR {
+            font-size: 2rem;
+        }
+    }
+}
+
+//* ------------------------------- PROJECTS -------------------------------- ~\\
+
+#projects {
+    height: 900px;
+    background: url(../Ressources/Images/tiltedcrystals.png) bottom right / 15% no-repeat;
+    background-color: $purple;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-evenly;
+
+    #projectsList {
+        letter-spacing: .2rem;
+        font-size: 1.2rem;
+        text-align: center;
+        display: grid;
+        box-shadow: rgba(17, 12, 46, 0.15) 0px 48px 100px 0px;
+        grid-template-columns: max-content auto;
+        grid-template-rows: auto max-content;
+        background: url(../Ressources/Images/holdMoonPhase.svg) top center / 100% no-repeat;
+        color: white;
+        width: 400px;
+        height: 300px;
+        padding: 2rem;
+
+        &:before,
+        &:after {
+            content: "";
+            display: block;
+            width: 100%;
+            height: 100%;
+            border: 1px solid white;
+        }
+
+        &:before {
+            grid-row: 1 / 2;
+            border-right: none;
+            border-bottom: none;
+        }
+
+        &:after {
+            grid-row: 1 / span 2;
+            border-left: none;
+        }
+    }
+
+    .project-legend {
+        text-decoration: underline;
+        font-size: 2rem;
+        padding-left: 2rem;
+        padding-bottom: 1.5rem;
+    }
+
+    .project-fieldset {
+        border: 0;
+    }
+
+    .project-input {
+        cursor: pointer;
+    }
+
+    input[type="radio"] {
+        appearance: none;
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        border: 1px solid $whiteBlue;
+        border-radius: 50%;
+        outline: none;
+        width: 20px;
+        height: 20px;
+        transition: all 0.2s ease-in-out;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    }
+
+    input[type="radio"]:checked {
+        background-color: $whiteLogo;
+        border: none;
+    }
+
+    #projectsChecked {
+        background: url(../Ressources/Images/smallMoonStars.svg) top -100px left -100px / 350px no-repeat;
+        width: 700px;
+        text-align: center;
+        color: $white;
+        font-family: 'UncialAntiqua';
+
+        h2 {
+            font-size: 4rem;
+            padding-bottom: 3rem;
+            text-decoration: underline;
+
+            p {
+                font-size: 1.5rem;
+            }
+        }
+
+        figure {
+            padding-top: 3rem;
+
+            p {
+                padding-top: 3rem;
+            }
+
+        }
+
+    }
+}
+
+
+
+//~ -------------------- DECORA SECTION ----------------------------- ~\\
+
+#lastCommit {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 900px;
+    background: url(../Ressources/Images/moon-phase-end.png) center center / cover no-repeat;
+
+    h2 {
+        max-width: 50rem;
+        text-align: center;
+        font-size: 3rem;
+        letter-spacing: .5rem;
+    }
+}
+
+//& ---------------------- FOOTER --------------------------- ~\\
+
+footer {
+    max-height: 300px;
+    background: url(../Ressources/Images/moonCat.svg) bottom right / 13% no-repeat, url(../Ressources/Images/mooncatmirrored.svg) bottom left / 13% no-repeat;
+    background-color: #151515;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    svg {
+        height: 200px;
+    }
+
+    p {
+        align-self: flex-end;
+        font-size: .5rem;
+        padding-right: 8%;
+        padding-bottom: 5px;
+    }
+}
+
+//* ----------------------------- MEDIA QUERRIES ------------------------------ ~\\
+@media (max-width: 1150px) {
+    header {
+        .nav {
+            ul {
+                li {
+                    a {
+                        font-size: 2rem;
+                        padding: 30px 5px;
+                        transition: all .5s ease;
+                    }
+                }
+            }
+        }
+    }
+
+    footer {
+        svg {
+            height: 100%;
+        }
+    }
+}
+
+
+
+@media (max-width: 800px) {
+    header {
+        .nav {
+            display: none;
+        }
+    }
+
+    #introduction {
+        article {
+            h1 {
+                font-size: 3.5rem;
+            }
+
+            h2 {
+                font-size: 1.5rem;
+            }
+        }
+
+        #quotes {
+            font-size: 1rem;
+
+            #MoonVines {
+                height: 5rem;
+            }
+        }
+    }
+
+    footer {
+        max-height: 300px;
+        background: url(../Ressources/Images/moonCat.svg) bottom right / 20% no-repeat, url(../Ressources/Images/mooncatmirrored.svg) bottom left / 20% no-repeat;
+        background-color: #151515;
+    }
+}
