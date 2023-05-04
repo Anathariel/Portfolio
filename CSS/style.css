@@ -498,6 +498,7 @@ header #language-switcher {
 #projects #projectsChecked figure img {
   width: 15rem;
   border-radius: 1.5rem;
+  cursor: pointer;
 }
 #projects #projectsChecked figure p {
   padding-top: 3rem;

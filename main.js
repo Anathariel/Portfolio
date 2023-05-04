@@ -46,10 +46,6 @@ proOptions.addEventListener("change", (e) => {
   projectEl.appendChild(selectedProject.cloneNode(true));
 });
 
-
-
-
-
 // ---------------------- LANGUAGE SWITCHER ---------------------- \\
 
 var languageSwitcherButton = document.getElementById('language-switcher');
@@ -65,3 +61,26 @@ languageSwitcherButton.addEventListener('click', function () {
     window.location.href = 'indexfr.html';
   }
 });
+
+
+
+// ---------------------- PREVIEW IMGs ---------------------- \\
+
+
+// const projectImages = document.querySelectorAll('.project-img');
+// projectImages.forEach(img => {
+//   img.addEventListener('click', () => {
+//     const imgSrc = img.getAttribute('src');
+//     const preview = document.createElement('div');
+//     preview.classList.add('project-img-preview');
+//     preview.innerHTML = `
+//       <img src="${imgSrc}" alt="Project image preview">
+//       <button class="project-img-close">Close</button>
+//     `;
+//     document.body.appendChild(preview);
+//     const closeButton = preview.querySelector('.project-img-close');
+//     closeButton.addEventListener('click', () => {
+//       preview.remove();
+//     });
+//   });
+// });
