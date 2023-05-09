@@ -21,6 +21,7 @@ hr {
   margin: 0 auto;
   padding: 0;
   box-sizing: border-box;
+  scroll-behavior: smooth;
 }
 
 .max-row {
@@ -410,7 +411,7 @@ header #language-switcher {
 }
 
 #projects {
-  height: 900px;
+  min-height: 900px;
   background: url(../Ressources/Images/tiltedcrystals.png) bottom right/15% no-repeat;
   background-color: #3F3351;
   display: flex;
@@ -493,10 +494,13 @@ header #language-switcher {
   font-size: 1.5rem;
 }
 #projects #projectsChecked figure {
+  display: inline-flex;
+  flex-direction: row;
+  flex-wrap: wrap;
   padding-top: 3rem;
 }
 #projects #projectsChecked figure img {
-  width: 15rem;
+  width: 50%;
   border-radius: 1.5rem;
   cursor: pointer;
 }
