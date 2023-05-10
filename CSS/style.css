@@ -313,11 +313,12 @@ header #language-switcher {
   left: -12rem;
 }
 #aboutMe .containerPortrait {
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
   height: 450px;
   width: 100%;
-  background-color: #D8CBC4;
   border-radius: 75%;
+}
+#aboutMe .containerPortrait:hover {
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 }
 #aboutMe .containerSocials {
   width: 350px;
